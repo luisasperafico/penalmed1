@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+nav.menu-lateral {
+    width: 90px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.979);
+    padding: 40px 0 40px 1%;
+    box-shadow: 3px 0 0 #f07;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 2s;
+}
+
+nav.menu-lateral:hover {
+    width: 250px; 
+}
+
+nav.menu-lateral:hover ul li.item-menu a .txt-link {
+    display: inline;
+}
+
+.btn-expandir {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir > i {
+    color: aliceblue;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li.item-menu {
+    transition: background 1s;
+}
+
+ul li.item-menu:hover {
+    background: #f07;
+}
+
+ul li.item-menu a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 20px 4%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+ul li.item-menu a .txt-link {
+    margin-left: 10px;
+    display: none;
+}
+
+ul li.item-menu a .icon {
+    font-size: 20px;
+    margin-left: 10px;
+}

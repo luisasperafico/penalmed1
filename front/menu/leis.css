@@ -1,0 +1,199 @@
+body {
+    background-color: rgba(204, 234, 255, 0.979);
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(103, 190, 253, 0.486);
+    padding: 10px 20px;
+    position: relative;
+}
+
+main {
+    padding: 20px;
+    background-color: rgba(204, 234, 255, 0.979);
+}
+
+button {
+    background-color: transparent;
+    color: rgba(0, 88, 151, 0.979);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.btn {
+    background-color: rgba(0, 88, 151, 0.979);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    background-color: rgb(87, 180, 247);
+}
+
+.pesquisa {
+    background-color: rgba(130, 200, 250, 0.877);
+    border: transparent;
+    border-radius: 4px 0 0 4px;
+    color: white;
+    padding: 10px;
+    width: 200px;
+}
+
+.pesquisa:focus {
+    outline: none;
+}
+
+.search-container {
+    display: flex;
+}
+
+.search-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgba(0, 88, 151, 0.979);
+    padding: 10px;
+}
+
+.search-btn:hover {
+    color: white;
+    background-color: rgba(0, 88, 151, 0.979);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(103, 190, 253, 0.89);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgba(0, 88, 151, 0.979);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #297fb9b4;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+nav.menu-lateral {
+    width: 90px;
+    height: 100%;
+    background-color: rgb(103, 190, 253);
+    padding: 40px 0 40px 1%;
+    box-shadow: -3px 0 0 rgb(163, 215, 252);
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    transition: width 2s;
+    z-index: 1;
+}
+
+nav.menu-lateral:hover {
+    width: 250px;
+}
+
+nav.menu-lateral:hover ul li.item-menu a .txt-link {
+    display: inline;
+}
+
+.btn-expandir {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir > i {
+    color: aliceblue;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li.item-menu {
+    transition: background 1s;
+}
+
+ul li.item-menu:hover {
+    background: rgb(61, 160, 230);
+}
+
+ul li.item-menu a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 20px 4%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+ul li.item-menu a .txt-link {
+    margin-left: 10px;
+    display: none;
+}
+
+ul li.item-menu a .icon {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.auth-buttons {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: right 2s;
+}
+
+nav.menu-lateral:hover ~ .auth-buttons {
+    right: 260px;
+}
