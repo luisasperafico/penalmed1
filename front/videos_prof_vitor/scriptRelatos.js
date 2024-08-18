@@ -1,10 +1,10 @@
 let  button = document.getElementById("enviar")
 
 button.click = async function() {
-    let nome = document.getElementById('Nome').value;
-    let email = document.getElementById('Email').value;
     let nome_de_usuario  = document.getElementById('Nome de Usuário ').value;
-    let senha = document.getElementById('Senha').value;
+    let id = document.getElementById('Nome').value;
+    let text = document.getElementById('Relato').value;
+    let imagem = document.getElementById('Imagem').value;
 
     let dados = {nome,email,nome_de_usuario, senha}
     const response = await fetch ('https://localhost: 3003/api/store/penalmed',{
