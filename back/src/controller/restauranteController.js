@@ -1,4 +1,3 @@
-const { query } = require('express');
 const connection = require('../config/db')
 const dotenv = require('dotenv').config();
 
@@ -11,7 +10,7 @@ async function storeRestaurante(request, response) {
     )
     const query = 'INSERT INTO restaurantes(nome, endereco, imagem, telefone) VALUES(?, ?, ?, ?)';
 
-    connection.query(query, params (err, results) => {
+    connection.query(query, params, (err, results) => {
         if(results){
             response.status(200).json({
                 success: true,

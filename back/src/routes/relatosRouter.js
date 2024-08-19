@@ -1,8 +1,8 @@
-const {Router} = require('express');
+const express = require("express")
 
-const router = Router;
+const router = express.Router();
 
-const {storeRelatos,getRelatos}= require('../controller/relatosController');
+const {storeRelatos, getRelatos} = require('../controller/relatosController');
 
 router.post('/store/relatos', storeRelatos);
 router.get('/get/relatos', getRelatos);

@@ -1,7 +1,7 @@
 const connection = require('../config/db')
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 
- async function storeRelato (request, response) {
+ async function storeRelatos (request, response) {
     const params = Array(
         request.body.nome,
         request.body.texto,
@@ -49,7 +49,7 @@ require('dotenv').config();
 }
 
 module.exports = {
-  storeRelato,
+  storeRelatos,
   getRelatos
 
 };

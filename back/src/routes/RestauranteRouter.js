@@ -1,8 +1,8 @@
-const {Router} = require('express'); 
+const express = require("express")
 
-const router = Router();
+const router = express.Router();
 
-const {storeRestaurante} = require('../controller/relatosController');
+const {storeRestaurante} = require('../controller/restauranteController');
 
 router.post('/store/restaurante', storeRestaurante);
 
