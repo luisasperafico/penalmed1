@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', async() => {
                 telefone.textContent = restaurante.telefone 
                 
                 infoDiv.appendChild(nome);
-                infoDiv.appendChild(endereco);
-                infoDiv.appendChild(telefone);
+                infoDiv.appendChild(titulo);
+                infoDiv.appendChild(texto);
 
                 card.appendChild(img);
                 card.appendChild(infoDiv);
@@ -37,4 +37,4 @@ document.addEventListener('DOMContentLoaded', async() => {
           })
         } else {
             console.log("Erro", result.sql)
-        };
+        }});

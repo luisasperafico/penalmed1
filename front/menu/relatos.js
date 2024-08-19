@@ -1,31 +1,53 @@
-const formRelato = document.getElementById('form-relato');
+const btn = document.getElementById('enviar');
+const formRelato = document.getElementById("relatos1");
 const relatosDiv = document.getElementById('relatos');
 
-formRelato.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const titulo = document.getElementById('titulo').value;
-    const nome = document.getElementById('nome').value;
-    const imagem = document.getElementById('imagem').files[0];
-    const texto = document.getElementById('texto').value;
+btn.onclick = async function(e) {
     
-    const relato = {
-        titulo,
-        nome,
-        imagem,
-        texto
-    };
-    
-    adicionarRelato(relato);
+  e.preventDefault();
+  const titulo = formRelato.elements['Titulo'].value;
+  const nome = formRelato.elements['nome'].value;
+  const imagem = formRelato.elements['imagem'].files[0];
+  const texto = formRelato.elements['texto'].value;
+
+  const relato = {
+    titulo,
+    nome,
+    imagem,
+    texto
+  };
+
+   
+  const response = await fetch('http://localhost:3003/api/store/relatos', {
+    method: "POST",
+    headers: {"Content-type": "application/json; chartset=UTF-8"},
+    body: JSON.stringify(relato)
 });
 
+let content = await response.json();
+
+    if(content.success) {
+        alert("Sucesso!")
+    } else{
+        alert("Não foi criado!")
+    console.log(content.sql);
+}
+
+
+  //adicionarRelato(relato);
+
+};
+
 function adicionarRelato(relato) {
-    const relatoHTML = `
-        <div class="relato">
-            <h2>${relato.titulo}</h2>
-            <p>Por: ${relato.nome}</p>
-            <img src="${URL.createObjectURL(relato.imagem)}" alt="Imagem do relato">
-            <p>${relato.texto}</p>
-        </div>
-    `;
-    relatosDiv.innerHTML += relatoHTML;
+  const imagemSrc = relato.imagem?.src || '';
+
+  const relatoHTML = `
+    <div class="relato">
+      <h2>${relato.titulo}</h2>
+      <p>Por: ${relato.nome}</p>
+      ${imagemSrc ? `<img src="${imagemSrc}" alt="Imagem">` : ''}
+      <p>${relato.texto}</p>
+    </div>
+  `;
+  relatosDiv.innerHTML += relatoHTML;
 }
