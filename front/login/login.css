@@ -26,8 +26,9 @@ body {
 }
 .content::before {
     content: "";
-    position: absolute;
-    background-color: rgb(103, 190, 253);
+    position: absolute;background: rgb(10,2,140);
+    background: linear-gradient(90deg, rgba(10,2,140,1) 0%, rgba(104,211,249,1) 100%);
+    
     width: 40%;
     height: 100%;
     border-top-left-radius: 15px;
@@ -43,8 +44,12 @@ body {
     color: #fff;
 }
 .title-second {
-    color: rgba(89, 180, 246, 0.486);
-}
+    background: rgb(5, 1, 76);
+    background: linear-gradient(90deg, rgba(10,2,140,1) 0%, rgba(104,211,249,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
 .description {
     font-size: 14px;
     font-weight: 300;
