@@ -2,11 +2,14 @@ body {
     background-color: rgba(204, 234, 255, 0.979);
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    color: #003366;
 }
 
 .logo {
     width: 65px;
     height: 65px;
+    border-radius: 50%;
+    margin: 10px;
 }
 
 header {
@@ -16,6 +19,8 @@ header {
     background-color: rgba(103, 190, 253, 0.486);
     padding: 10px 20px;
     position: relative;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #ddd;
 }
 
 main {
@@ -28,15 +33,21 @@ button {
     color: rgba(0, 88, 151, 0.979);
     padding: 10px 20px;
     border: none;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(0, 88, 151, 0.2);
+    color: #004080;
 }
 
 .btn {
     background-color: rgba(0, 88, 151, 0.979);
     border: none;
     color: white;
-    padding: 8px 16px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -44,10 +55,11 @@ button {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: rgb(87, 180, 247);
+    background-color: #005fa3;
 }
 
 .pesquisa {
@@ -56,11 +68,13 @@ button {
     border-radius: 4px 0 0 4px;
     color: white;
     padding: 10px;
-    width: 200px;
+    width: 150px; /* reduced width */
+    transition: background-color 0.3s ease;
 }
 
 .pesquisa:focus {
     outline: none;
+    background-color: rgba(130, 200, 250, 0.7);
 }
 
 .search-container {
@@ -73,6 +87,7 @@ button {
     cursor: pointer;
     color: rgba(0, 88, 151, 0.979);
     padding: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .search-btn:hover {
@@ -99,6 +114,7 @@ button {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-content a:hover {
@@ -120,12 +136,12 @@ nav.menu-lateral {
     height: 100%;
     background-color: rgb(103, 190, 253);
     padding: 40px 0 40px 1%;
-    box-shadow: -3px 0 0 rgb(163, 215, 252);
+    box-shadow: -3px 0 10px rgb(163, 215, 252);
     position: fixed;
     top: 0;
     right: 0;
     overflow: hidden;
-    transition: width 2s;
+    transition: width 0.5s ease;
     z-index: 1;
 }
 
@@ -156,7 +172,7 @@ ul {
 }
 
 ul li.item-menu {
-    transition: background 1s;
+    transition: background 0.3s ease;
 }
 
 ul li.item-menu:hover {
@@ -191,20 +207,11 @@ ul li.item-menu a .icon {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: right 2s;
+    transition: right 0.5s ease;
 }
 
 nav.menu-lateral:hover ~ .auth-buttons {
     right: 260px;
-}
-
-#relatos {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #e0f3ff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .relato {
@@ -213,9 +220,98 @@ nav.menu-lateral:hover ~ .auth-buttons {
     background-color: #e0f3ff;
     border: 1px solid #ddd;
     border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-main {
-    padding: 20px;
-    background-color: #e0f3ff; 
+.relato:hover {
+    background-color: #fdd9ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.relato .titulo, .relato .descricao, .relato .autor, .relato .data {
+    font-size: 16px;
+    color: #003366;
+    margin-bottom: 10px;
+    background-color: #87CEEB;
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%; /* reduced width */
+    text-align: center;
+}
+
+.relato .acoes {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.relato .acoes button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.relato .acoes button:hover {
+    background-color: #3e8e41;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 31vw;
+    margin: 0 auto;
+    padding-top: 90px;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    text-align: center; /* centraliza a escrita dos relatos */
+  }
+  
+  input[type="text"],
+  textarea {
+    border: 2px solid var(--azul_claro);
+    border-radius: 30px;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center; /* centraliza a escrita nos campos de texto */
+  }
+  
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  button[type="submit"] {
+    background-color: #e9aa6c;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-color: #e9aa6c;
+    border-radius: 15px;
+    margin-left: 10px;
+    height: 40px;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 550;
+    color: white;
+    font-family: "Raleway", sans-serif;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #e9aa6c80; /* cor de fundo mais clara ao passar o mouse */
+  }
