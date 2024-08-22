@@ -141,7 +141,7 @@ nav.menu-lateral {
     top: 0;
     right: 0;
     overflow: hidden;
-    transition: width 0.5s ease;
+    transition: width 2.0s ease;
     z-index: 1;
 }
 
