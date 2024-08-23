@@ -197,3 +197,54 @@ ul li.item-menu a .icon {
 nav.menu-lateral:hover ~ .auth-buttons {
     right: 260px;
 }
+.leis {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #e0f3ff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.leis h2 {
+    margin-top: 0;
+}
+
+.leis p {
+    margin-bottom: 20px;
+}
+
+.leis a.btn {
+    background-color: #0791e0;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.leis a.btn:hover {
+    background-color: #70b9f0;
+}
+.read-more {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .read-more:hover {
+    background-color: #3e8e41;
+  }
+  .news-highlight {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+}

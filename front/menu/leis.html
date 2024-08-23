@@ -33,11 +33,6 @@
                     
                     </a>
                 </li>
-                <li class="item-menu">
-                    <a href="#"><span class="icon"><i class="bi bi-book"></i></span>
-                        <span class="txt-link">Leis e artigos</span>
-                    \<a href="../menu/leis.html"></a>
-                    </a>
                 </li>
                 <li class="item-menu">
                     <a href="#"><span class="icon"><i class="bi bi-lungs"></i></span>
@@ -54,8 +49,32 @@
             <a href="file:///C:/Users/User/OneDrive/%C3%81rea%20de%20Trabalho/PENALMED/login/login.html" class="btn">Entrar</a>
         </div>
     </header>
-    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi praesentium,
-         quaerat doloribus deleniti eaque impedit eos consequatur illo, cum dicta, 
-         commodi nobis sed porro sint quae nemo odit explicabo ex?Z</p>
+    <main>
+        <h1>Leis e Artigos</h1>
+    
+        <section id="lei-1" class="leis">
+            <h2>Lei nº 1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+            <a href="#" class="btn" onclick="highlightNews('lei-1')">Ver mais</a>
+        </section>
+    
+        <section id="lei-2" class="leis">
+            <h2>Lei nº 2</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+            <a href="#" class="btn" onclick="highlightNews('lei-2')">Ver mais</a>
+        </section>
+    
+        <section id="lei-3" class="leis">
+            <h2>Lei nº 3</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+            <a href="#" class="btn" onclick="highlightNews('lei-3')">Ver mais</a>
+        </section>
+    
+        <div id="news-highlight" class="news-highlight">
+            <h2>Notícia em Destaque</h2>
+            <p>Selecione uma notícia para ver mais detalhes.</p>
+        </div>
+    </main>
+    <script src="./leis.js"></script>
 </body>
 </html>
