@@ -1,39 +1,33 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('http://localhost:3005/api/get/blog');
-    const result = await response.json();
+if (button) {
+    button.onclick = async function() {
+        let nome = document.getElementById("nome")?.value;
+        let titulo = document.getElementById("titulo")?.value;
+        let imagem = document.getElementById("imagem")?.value;
 
-    if(result.success){
-        const blogList = document.querySelector('.posts');
-        result.data.forEach(blog => {
-            const bloggeral = document.createElement('div');
-            bloggeral.className = 'blog';
+        
+            let dados = {nome, titulo, imagem};
 
-            const quad = document.createElement('div');
-            quad.className = 'quadro';
+            try {
+                const response = await fetch('http://localhost:3003/api/store/relatos', {
+                    method: "POST",
+                    headers: {"Content-type": "application/json; charset=UTF-8"},
+                    body: JSON.stringify(dados)
+                });
 
-            const titulo = document.createElement('h1');
-            titulo.className = 'titulo';
-            titulo.textContent = blog.titulo;
+                let content = await response.json();
 
-            const autor = document.createElement('p');
-            autor.className = 'autor';
-            autor.textContent = blog.autor;
-
-            const conteudo = document.createElement('p');
-            conteudo.className = 'conteudo';
-            conteudo.textContent = blog.conteudo;
-
-
-            quad.appendChild(titulo);
-            quad.appendChild(autor);
-            quad.appendChild(conteudo);
-
-            bloggeral.appendChild(quad);
-
-            blogList.appendChild(bloggeral);
-
-        })
-    }else{
-        console.log("Erro", result.sql)
-    }
-}); 
+                if (content.success) {
+                    alert("Sucesso!");
+                } else {
+                    alert("Não foi criado!");
+                    console.log(content.sql);
+                }
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+                alert("Ocorreu um erro durante o envio. Verifique o console para mais detalhes.");
+            }
+      
+    };
+} else {
+    console.error("Botão não encontrado no DOM.");
+}

@@ -13,7 +13,7 @@
 
 body {
     background: url("../images/background.png");
-    color: #f2f2f2;
+    color: #0a0909;
 }
 
 .container {
@@ -156,3 +156,15 @@ body {
     color: cadetblue;
 }
 
+.chat__messages {
+    flex-grow: 1;
+    padding: 30px 30px 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #fff; /* adicionado */
+}
+
+.chat__messages.typing {
+    background-color: #48a2ec; /* cor azul */
+}

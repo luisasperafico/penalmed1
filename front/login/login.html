@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login e Registro</title>
+    <title>Login e Cadastro</title>
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -90,6 +90,50 @@
                 <p class="description description-second">ou use o seu email</p>
                 <form id="loginForm" class="form">
                 
+                    <  <label class="label-input" for="registerEmail">
+                        <i class="far fa-envelope icon-modify"></i>
+                        <input type="email" id="registerEmail" placeholder="Email" required>
+                    </label>
+                    
+                    <label class="label-input" for="registerPassword">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input type="password" id="registerPassword" placeholder="Password" required>
+                    </label>
+                    
+                    <button type="button" onclick="cadastrar(event)" class="btn btn-second" >Criar conta</button>        
+                </form>
+            </div><!-- second column -->
+        </div><!-- first content -->
+        <div class="content second-content">
+            <div class="first-column">
+                <h2 class="title title-primary">Bem Vindo(a)!</h2>
+                <p class="description description-primary">Se ainda não possui uma conta, clique aqui para criar.</p>
+                <button id="signup" class="btn btn-primary" link>Entrar</button>
+            </div>
+            <div class="second-column">
+                <h2 class="title title-second">Entrar na sua conta.</h2>
+                <div class="social-media">
+                    <ul class="list-social-media">
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-facebook-f"></i>
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-google-plus-g"></i>
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-linkedin-in"></i>
+                            </li>
+                        </a>
+                    </ul>
+                </div><!-- social media -->
+                <p class="description description-second">ou use o seu email</p>
+                <form id="loginForm" class="form">
+                
                     <label class="label-input" for="loginEmail">
                         <i class="far fa-envelope icon-modify"></i>
                         <input type="email" id="loginEmail" placeholder="Email" required>
@@ -107,5 +151,3 @@
         </div><!-- second-content -->
     </div>
     <script src="login.js"></script>
-</body>
-</html>

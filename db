@@ -1,16 +1,29 @@
+DROP DATABASE IF EXISTS penalmed;
+
 create database penalmed;
-drop database if exists penalmed;
 USE penalmed;
-       
-   create table cadastro(
-	id int not null auto_increment primary key,
-    name varchar(255) not null,
-    email varchar(255) not null unique,
-    password varchar(255) not null,
-    created_at timestamp default current_timestamp,
-	updated_at timestamp default current_timestamp
+
+CREATE TABLE cadastro(
+    nome VARCHAR(255), 
+    email VARCHAR(255) NOT NULL UNIQUE, 
+    senha VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE relatos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(255),
+    texto LONGTEXT,
+    imagem varchar(255),
+    titulo VARCHAR(255),
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
+CREATE TABLE chat (
+  id INT AUTO_INCREMENT,
+  username VARCHAR(50) NOT NULL,
+  message TEXT NOT NULL,
+  PRIMARY KEY (id)
+);
 
-SELECT * FROM cadastro;
+SELECT * FROM chat;
+SELECT * FROM relatos;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,30 +40,42 @@
         </div>
     </header>
 
-    <main>
-        <h2>Relatos</h2>
-        <form id="relatos1">
-            <label for="Titulo">Título</label>
-            <input type="text" id="Titulo">
-            
-            <label for="nome">Nome</label>
-            <input type="text" id="nome">
-            
-            <label for="imagem">Adicionar Imagem</label>
-            <input type="file" id="imagem" name="imagem">
-            
-            <label for="texto">Escreva seu relato aqui</label>
-            <textarea id="texto"></textarea>
+    <section class="main-container">
+        
+        <div class="container">
+            <p>Ler relatos</p>
+            <main id="postContainer">
+                
+            </main>
+            <button id="loadMoreButton">Ler mais</button>
+        </div>
+    
+        <main class="container2">
+            <p>Postar relato</p>
+            <form id="relatos1">
+                <label for="Titulo">Título</label>
+                <input type="text" id="titulo">
+                
+                <label for="nome">Nome</label>
+                <input type="text" id="nome">
+                
+                <label for="imagem">Adicionar Imagem</label>
+                <input type="file" id="imagem" name="imagem">
+                
+                <label for="texto">Escreva seu relato aqui</label>
+                <textarea id="texto"></textarea>
+    
+                <button id="enviar" type="button">Enviar meu relato</button>
+            </form>
+            <div id="relatosDiv"></div>
+        </main>
+    </section>
 
-            <button id="enviar" type="button">Enviar meu relato</button>
-        </form>
+    
 
-        <div id="relatosDiv"></div>
-    </main>
+
 
     <script src="relatos.js"></script>
-    <script src="scriptListaRelatos.js"></script>
-    <script src="scriptRelatos.js"></script>
   
 </body>
 </html>
