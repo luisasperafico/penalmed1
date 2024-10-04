@@ -8,7 +8,7 @@ async function cadastrar(event){
      const data = {name , email , password} 
      console.log(data)
 
-     const response = await fetch('http://localhost:3003/api/login', {
+     const response = await fetch('http://localhost:3003/usuario/cadastro', {
         method: "POST",
         headers: {"Content-Type":"application/js"},
         body: JSON.stringify(data)
