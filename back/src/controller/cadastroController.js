@@ -8,7 +8,7 @@ async function storeUser(request, response) {
       request.body.password
     );
   
-    let query = "INSERT INTO cadastro(name, email, senha) values(?,?,?)";
+    let query = "INSERT INTO cadastro(name, email, password) values(?,?,?)";
   
     connection.query(query, params, (err, results) => {
       console.log(err, results)

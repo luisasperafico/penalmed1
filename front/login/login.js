@@ -8,11 +8,17 @@ async function cadastrar(event){
      const data = {name , email , password} 
      console.log(data)
 
-     const response = await fetch('http://localhost:3003/usuario/cadastro', {
+     const response = await fetch('http://localhost:3003/api/usuario/cadastro', {
         method: "POST",
-        headers: {"Content-Type":"application/js"},
+        headers: {"Content-Type":"application/json"},
         body: JSON.stringify(data)
     });
+
+    const result = await response.json();
+
+    if(result.success) {
+        window.location.href = "../homepage/home.html"
+    }
 }
 
 // Espera o DOM ser carregado antes de executar o código
