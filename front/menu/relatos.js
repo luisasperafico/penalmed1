@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Captura os valores dos campos do formulário
       const nome = form.nome.value;
-      const titulo = form.titulo.value;
+      // const titulo = form.titulo.value
       const relato = form.texto.value;
       const imagem = form.imagem.files[0]; // Seleciona o arquivo de imagem
 
