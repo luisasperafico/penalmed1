@@ -3,7 +3,7 @@ const dotenv = require('dotenv').config();
 
 const restauranteRouter = require('../src/routes/RestauranteRouter');
 const cadastroRouter = require('../src/routes/cadastroRouter')
-
+const relatosRouter = require('../src/routes/relatosRouter')
 
 const cors = require('cors');
 const app = express();
@@ -15,5 +15,6 @@ app.use(cors());
 
 app.use('/api', restauranteRouter);
 app.use('/api', cadastroRouter);
+app.use('/api', relatosRouter);
 
 module.exports = app;

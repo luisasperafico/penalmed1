@@ -1,18 +1,19 @@
 const connection = require('../config/db')
 const dotenv = require('dotenv').config();
 
- async function storeRelatos (request, response) {
+async function storeRelatos(request, response) {
+    
     const params = Array(
         request.body.nome,
         request.body.texto,
         request.body.imagem,
         request.body.titulo
     )
-    
-    const query = "INSERT INTO relatos (nome, endereco, imagem, telefone) VALUES (?,?,?,?)";
-    
+
+    const query = "INSERT INTO relatos (nome, texto, imagem, titulo) VALUES (?,?,?,?)";
+
     connection.query(query, params, (err, results) => {
-        if(results) {
+        if (results) {
             response.status(200).json({
                 success: true,
                 message: "Sucesso!",
@@ -26,19 +27,19 @@ const dotenv = require('dotenv').config();
             })
         }
     })
-    }
+}
 
-    async function getRelatos( request, response) {
-    const query = "SELECT * FROM relatos"; 
+async function getRelatos(request, response) {
+    const query = "SELECT * FROM relatos";
 
     connection.query(query, (err, results) => {
-        if(results){
+        if (results) {
             response.status(200).json({
                 success: true,
                 message: "Sucesso",
                 data: results
             })
-        } else{
+        } else {
             response.status(400).json({
                 success: false,
                 message: "Erro!",
@@ -49,7 +50,7 @@ const dotenv = require('dotenv').config();
 }
 
 module.exports = {
-  storeRelatos,
-  getRelatos
+    storeRelatos,
+    getRelatos
 
 };
