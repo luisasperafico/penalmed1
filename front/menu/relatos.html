@@ -53,18 +53,19 @@
         <main class="container2">
             <p>Postar relato</p>
             <form id="relatos1">
-            <form action="#" enctype="multipart/form-data"></form>
                 <label for="Titulo">Título</label>
-                <input type="text" id="titulo" name = "Título">
+                <input type="text" id="titulo">
                 
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" name="Nome">
+                <input type="text" id="nome">
                 
                 <label for="imagem">Adicionar Imagem</label>
-                <input type="file" id="imagem" name="imagem">
+                <input type="file" id="imagem" name="imagem" multiple>
+                
+                <div id="previewContainer"></div> <!-- Div para prévia das imagens -->
                 
                 <label for="texto">Escreva seu relato aqui</label>
-                <textarea id="texto" name="Relato"></textarea>
+                <textarea id="texto"></textarea>
     
                 <button id="enviar" type="button">Enviar meu relato</button>
             </form>
@@ -72,11 +73,30 @@
         </main>
     </section>
 
-    
-
-
-
     <script src="relatos.js"></script>
+    <script>
+        document.getElementById('imagem').addEventListener('change', function(event) {
+            const previewContainer = document.getElementById('previewContainer');
+            previewContainer.innerHTML = ''; // Limpa as prévias anteriores
+
+            const files = event.target.files;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.width = '100px'; // Ajuste o tamanho conforme necessário
+                    img.style.margin = '5px'; // Espaçamento entre as imagens
+                    previewContainer.appendChild(img);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
   
 </body>
 </html>

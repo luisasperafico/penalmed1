@@ -1,59 +1,57 @@
 // Aguarda o carregamento completo do DOM para executar o script
 document.addEventListener('DOMContentLoaded', function() {
-  // Seleciona o botão de envio e o formulário de relatos
-  const button = document.getElementById("enviar");
-  const form = document.getElementById("relatos1");
+    const button = document.getElementById("enviar");
+    const form = document.getElementById("relatos1");
 
-  // Verifica se o botão existe
-  if (button) {
-    // Define a função para o evento de clique no botão
-    button.onclick = async function(event) {
-      event.preventDefault(); // Previne o comportamento padrão do formulário (recarregar a página)
+    if (button) {
+        button.onclick = async function(event) {
+            event.preventDefault();
 
-      // Captura os valores dos campos do formulário
-      const nome = form.nome.value;
-      // const titulo = form.titulo.value
-      const relato = form.texto.value;
-      const imagem = form.imagem.files[0]; // Seleciona o arquivo de imagem
+            const nome = form.nome.value;
+            const titulo = form.titulo.value;
+            const relato = form.texto.value;
+            const imagem = form.imagem.files[0]; // Seleciona o arquivo de imagem
 
-      // Cria um objeto com os dados capturados
-      const dados = { nome, titulo, relato };
+            if (!nome || !titulo || !relato || !imagem) {
+                alert("Todos os campos devem ser preenchidos!");
+                return;
+            }
 
-      try {
-        // Cria um objeto FormData para incluir a imagem e os dados do formulário
-        const formData = new FormData();
-        formData.append("imagem", imagem);
-        formData.append("nome", nome);
-        formData.append("titulo", titulo);
-        formData.append("relato", relato);
+            const formData = new FormData();
+            formData.append("imagem", imagem); // Adiciona o arquivo
+            formData.append("nome", nome);
+            formData.append("titulo", titulo);
+            formData.append("relato", relato);
 
-        // Faz uma requisição para enviar os dados ao backend (POST)
-        const response = await fetch('http://localhost:3003/api/store/relatos', {
-          method: "POST",
-          headers: { "Content-type": "application/json;charset=UTF-8" }, // Cabeçalho da requisição
-          body: JSON.stringify(dados) // Envia os dados como JSON
-        });
+            // Para debugar o FormData
+            for (const [key, value] of formData.entries()) {
+                console.log(key, value);
+            }
 
-        // Converte a resposta em JSON
-        const content = await response.json();
+            try {
+                const response = await fetch('http://localhost:3003/api/store/relatos', {
+                    method: "POST",
+                    body: formData
+                });
 
-        // Verifica se a operação foi bem-sucedida
-        if (content.success) {
-          alert("Sucesso!"); // Exibe mensagem de sucesso
-        } else {
-          alert("Não foi criado!"); // Exibe mensagem de erro
-          console.log(content.sql); // Exibe erro no console
-        }
-      } catch (error) {
-        // Captura erros na requisição
-        console.error("Erro na requisição:", error); // Exibe erro no console
-        alert("Ocorreu um erro durante o envio. Verifique o console para mais detalhes."); // Alerta de erro
-      }
-    };
-  } else {
-    console.error("Botão não encontrado no DOM."); // Erro se o botão não for encontrado
-  }
+                const content = await response.json();
+
+                if (content.success) {
+                    alert("Sucesso!");
+                } else {
+                    alert("Não foi criado!");
+                    console.log(content.sql);
+                }
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+                alert("Ocorreu um erro durante o envio. Verifique o console para mais detalhes.");
+            }
+        };
+    } else {
+        console.error("Botão não encontrado no DOM.");
+    }
 });
+
 
 // Variável para controlar a página atual de relatos carregados
 let currentPage = 1;
@@ -102,10 +100,10 @@ async function loadPosts(page) {
           article.appendChild(h2);
           article.appendChild(h3);
 
-          // Adiciona o <article> ao container de posts
-          postContainer.appendChild(article);
-      });
-  } else {
-      alert(content.message); // Exibe mensagem de erro caso a requisição falhe
-  }
-}
+           // Adiciona o <article> ao container de posts
+                      postContainer.appendChild(article);
+                    });
+                } else {
+                    alert(content.message); // Exibe mensagem de erro caso a requisição falhe
+                }
+            }
