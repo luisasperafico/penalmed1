@@ -12,16 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const relato = form.texto.value;
             const imagem = form.imagem.files[0]; // Seleciona o arquivo de imagem
 
+
+          
             if (!nome || !titulo || !relato || !imagem) {
                 alert("Todos os campos devem ser preenchidos!");
                 return;
             }
-
-            const formData = new FormData();
-            formData.append("imagem", imagem); // Adiciona o arquivo
-            formData.append("nome", nome);
-            formData.append("titulo", titulo);
-            formData.append("relato", relato);
+ 
+            const formData = new FormData(form)
 
             // Para debugar o FormData
             for (const [key, value] of formData.entries()) {
