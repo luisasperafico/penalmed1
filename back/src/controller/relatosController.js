@@ -5,10 +5,12 @@ async function storeRelatos(request, response) {
     
     const params = Array(
         request.body.nome,
-        request.body.texto,
+        request.body.relato,
         request.body.imagem,
         request.body.titulo
     )
+
+    console.log("params", request.body)
 
     const query = "INSERT INTO relatos (nome, texto, imagem, titulo) VALUES (?,?,?,?)";
 
