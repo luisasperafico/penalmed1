@@ -1,5 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 const restauranteRouter = require('../src/routes/RestauranteRouter');
 const cadastroRouter = require('../src/routes/cadastroRouter')

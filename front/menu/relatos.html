@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="relatos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body>
     <header>
         <img src="logo.png" alt="logo" class="logo">
@@ -15,7 +17,7 @@
             <div class="btn-expandir">
                 <i class="bi bi-list"></i>
             </div>
-            <ul> 
+            <ul>
                 <li class="item-menu">
                     <a href="../homepage/home.html"><span class="icon"><i class="bi bi-house"></i></span>
                         <span class="txt-link">Home</span>
@@ -35,38 +37,41 @@
         </nav>
 
         <div class="auth-buttons">
-            <a href="file:///C:/Users/User/OneDrive/%C3%81rea%20de%20Trabalho/PENALMED/login/login.html" class="btn">Cadastrar</a>
-            <a href="file:///C:/Users/User/OneDrive/%C3%81rea%20de%20Trabalho/PENALMED/login/login.html" class="btn">Entrar</a>
+            <a href="file:///C:/Users/User/OneDrive/%C3%81rea%20de%20Trabalho/PENALMED/login/login.html"
+                class="btn">Cadastrar</a>
+            <a href="file:///C:/Users/User/OneDrive/%C3%81rea%20de%20Trabalho/PENALMED/login/login.html"
+                class="btn">Entrar</a>
         </div>
     </header>
 
     <section class="main-container">
-        
+
         <div class="container">
             <p>Ler relatos</p>
             <main id="postContainer">
-                
+            <!-- PROVAVELMENTE AQUI CHAMAR A FUNÇÃO DE LOADPOSTS -->
+
             </main>
             <button id="loadMoreButton">Ler mais</button>
         </div>
-    
+
         <main class="container2">
             <p>Postar relato</p>
             <form id="relatos1" enctype="multipart/form-data">
-                <label for="Titulo">Título</label>
-                <input type="text" id="titulo">
-                
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo"> <!-- Adicione o atributo name -->
+
                 <label for="nome">Nome</label>
-                <input type="text" id="nome">
-                
+                <input type="text" id="nome" name="nome"> <!-- Adicione o atributo name -->
+
                 <label for="imagem">Adicionar Imagem</label>
-                <input type="file" id="imagem" name="imagem" multiple>
-                
+                <input type="file" id="imagem" name="imagem" multiple> <!-- Isso já está correto -->
+
                 <div id="previewContainer"></div> <!-- Div para prévia das imagens -->
-                
+
                 <label for="texto">Escreva seu relato aqui</label>
-                <textarea id="texto"></textarea>
-    
+                <textarea id="texto" name="texto"></textarea> <!-- Adicione o atributo name -->
+
                 <button id="enviar" type="button">Enviar meu relato</button>
             </form>
             <div id="relatosDiv"></div>
@@ -75,7 +80,7 @@
 
     <script src="relatos.js"></script>
     <script>
-        document.getElementById('imagem').addEventListener('change', function(event) {
+        document.getElementById('imagem').addEventListener('change', function (event) {
             const previewContainer = document.getElementById('previewContainer');
             previewContainer.innerHTML = ''; // Limpa as prévias anteriores
 
@@ -85,7 +90,7 @@
                 const file = files[i];
                 const reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     const img = document.createElement('img');
                     img.src = e.target.result;
                     img.style.width = '100px'; // Ajuste o tamanho conforme necessário
@@ -97,6 +102,7 @@
             }
         });
     </script>
-  
+
 </body>
+
 </html>

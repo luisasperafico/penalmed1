@@ -1,9 +1,9 @@
-const express = require("express")
+const express = require("express");
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' }); // Define o diretório onde os arquivos serão salvos
 
 const router = express.Router();
-
-const {storeRelatos, getRelatos} = require('../controller/relatosController');
-
+const { storeRelatos, getRelatos } = require('../controller/relatosController');
 
 /**
  * @swagger
@@ -19,10 +19,8 @@ const {storeRelatos, getRelatos} = require('../controller/relatosController');
  *              type: array
  *              items:
  *                type: object
- */
-
-router.post('/store/relatos', storeRelatos);
-
+*/
+router.post('/store/relatos', upload.single('imagem'), storeRelatos); // Use upload.single aqui
 
 /**
  * @swagger
@@ -38,9 +36,7 @@ router.post('/store/relatos', storeRelatos);
  *              type: array
  *              items:
  *                type: object
- */
- 
-
+*/
 router.get('/get/relatos', getRelatos);
 
 module.exports = router;
