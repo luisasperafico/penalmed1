@@ -1,9 +1,24 @@
 const express = require("express");
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' }); // Define o diretório onde os arquivos serão salvos
+// const upload = multer({ dest: 'uploads/' }); // Define o diretório onde os arquivos serão salvos
+const crypto = require("crypto")
+const path = require('path')
 
 const router = express.Router();
 const { storeRelatos, getRelatos } = require('../controller/relatosController');
+
+var storage = multer.diskStorage({
+    destination: 'uploads/',
+    filename: function (req, file, cb) {
+      crypto.pseudoRandomBytes(16, function (err, raw) {
+        if (err) return cb(err)
+  
+        cb(null, raw.toString('hex') + path.extname(file.originalname))
+      })
+    }
+  })
+  
+  var upload = multer({ storage: storage })
 
 /**
  * @swagger

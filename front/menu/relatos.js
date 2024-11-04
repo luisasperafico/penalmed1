@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h3>${relato.titulo}</h3>
                 <p>${relato.texto}</p>
                 <p>Por: ${relato.nome}</p>
-                ${relato.imagem ? `<img src="${relato.imagem}" alt="Imagem do relato">` : ''}
+                ${relato.imagem ? `<img src="/back/uploads/${relato.imagem}" alt="Imagem do relato">` : ''}
             `;
             //A IMAGEM AO SALVAR NÃO VAI A EXTENSÃO, VERIFICAR NO MULTER, UPLOAD ALGO ASSIM
             //ARRUMAR O SRC DA IMG PARA BUSCAR A PASTA UPLOADS + O NOME DA IMAGEM

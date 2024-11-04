@@ -7,8 +7,9 @@ async function storeRelatos(request, response) {
 
     const params = [nome, texto, imagem ? imagem.filename : null, titulo];
 
-    console.log("params", params); // Para verificar os dados
+    console.log("params", imagem); // Para verificar os dados
 
+    
     const query = "INSERT INTO relatos (nome, texto, imagem, titulo) VALUES (?,?,?,?)";
 
     connection.query(query, params, (err, results) => {
