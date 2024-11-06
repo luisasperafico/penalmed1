@@ -9,11 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Criando o FormData com base no formulário
             const formData = new FormData(form);
 
-            // Para debugar o FormData
-            for (const [key, value] of formData.entries()) {
-                console.log(key, value);
-            }
-
             // Verifica se todos os campos estão preenchidos
             if (!formData.get('nome') || !formData.get('titulo') || !formData.get('texto') || !formData.get('imagem')) {
                 alert("Todos os campos devem ser preenchidos!");
@@ -27,8 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 const content = await response.json();
-                console.log(content); // Debug: ver resposta da API
-
                 if (content.success) {
                     alert("Sucesso!");
 
@@ -47,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     };
                     reader.readAsDataURL(file);
 
-                    // Opcional: Limpar o formulário após o envio bem-sucedido
+                    // Limpar o formulário após o envio bem-sucedido
                     form.reset();
                 } else {
-                    alert("Não foi criado!");
+                    alert("Não foi possível criar o relato!");
                     console.log(content.sql);
                 }
             } catch (error) {
@@ -59,51 +52,71 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
     } else {
-        console.error("Botão não encontrado no DOM.");
+        console.error("Botão 'enviar' não encontrado no DOM.");
     }
 
-        loadRelatos();
-    
-        // Função para carregar relatos do servidor
-        async function loadRelatos() {
-            try {
-                const response = await fetch('http://localhost:3003/api/get/relatos', {
-                    method: "GET",
-                    headers: { "Content-Type": "application/json" }
+    // Carrega os relatos quando a página é aberta
+    loadRelatos();
+
+    // Função para carregar relatos do servidor
+    async function loadRelatos() {
+        try {
+            const response = await fetch('http://localhost:3003/api/get/relatos', {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
+            });
+
+            const content = await response.json();
+
+            if (content.success) {
+                content.data.forEach(relato => {
+                    renderRelato(relato);
                 });
-    
-                const content = await response.json();
-                console.log(content); // Verifique o conteúdo no console para confirmar a estrutura dos dados
-    
-                if (content.success) { // Certifique-se de que a resposta contém "success" e que ele é "true"
-                    // Percorre cada relato e o renderiza na página
-                    content.data.forEach(relato => {
-                        renderRelato(relato);
-                    });
-                } else {
-                    alert("Erro ao carregar relatos: " + content.message);
-                }
-            } catch (error) {
-                console.error("Erro na requisição:", error);
-                alert("Ocorreu um erro ao carregar os relatos.");
+            } else {
+                alert("Erro ao carregar relatos: " + content.message);
             }
+        } catch (error) {
+            console.error("Erro na requisição:", error);
+            alert("Ocorreu um erro ao carregar os relatos.");
         }
-    
-        // Função para adicionar o relato na página
-        function renderRelato(relato) {
-            const relatosContainer = document.getElementById("postContainer"); // Certifique-se de que este elemento existe no HTML para exibir os relatos.
-            
-            // Criando o HTML do novo relato
-            const relatoDiv = document.createElement("div");
-            relatoDiv.className = "relato";
-            relatoDiv.innerHTML = `
-                <h3>${relato.titulo}</h3>
-                <p>${relato.texto}</p>
-                <p>Por: ${relato.nome}</p>
-                ${relato.imagem ? `<img src="/back/uploads/${relato.imagem}" alt="Imagem do relato">` : ''}
-            `;
-            //A IMAGEM AO SALVAR NÃO VAI A EXTENSÃO, VERIFICAR NO MULTER, UPLOAD ALGO ASSIM
-            //ARRUMAR O SRC DA IMG PARA BUSCAR A PASTA UPLOADS + O NOME DA IMAGEM
-            relatosContainer.prepend(relatoDiv); // Insere o novo relato no início da lista
+    }
+
+    // Função para adicionar o relato na página
+    function renderRelato(relato) {
+        const relatosContainer = document.getElementById("postContainer");
+
+        // Criação do HTML do novo relato
+        const relatoDiv = document.createElement("div");
+        relatoDiv.className = "relato";
+        relatoDiv.innerHTML = `
+            <h3>${relato.titulo}</h3>
+            <p>${relato.texto}</p>
+            <p>Por: ${relato.nome}</p>
+            ${relato.imagem ? `<img src="/back/uploads/${relato.imagem}" alt="Imagem do relato">` : ''}
+        `;
+        relatosContainer.prepend(relatoDiv); // Insere o novo relato no início da lista
+    }
+
+    // Função para pré-visualizar imagem antes do envio
+    document.getElementById('imagem').addEventListener('change', function (event) {
+        const previewContainer = document.getElementById('previewContainer');
+        previewContainer.innerHTML = ''; // Limpa as prévias anteriores
+
+        const files = event.target.files;
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.width = '100px';
+                img.style.margin = '5px';
+                previewContainer.appendChild(img);
+            };
+
+            reader.readAsDataURL(file);
         }
     });
+});

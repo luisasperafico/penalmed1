@@ -226,7 +226,7 @@ nav.menu-lateral:hover ~ .auth-buttons {
 }
 
 .relato:hover {
-    background-color: #fdd9ff;
+    background-color:hsl(209, 93%, 82%);;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -314,3 +314,42 @@ form {
   button[type="submit"]:hover {
     background-color: #e9aa6c80; /* cor de fundo mais clara ao passar o mouse */
   }
+  .relato img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Estilo do texto do relato */
+.relato .titulo, .relato .descricao, .relato .autor, .relato .data {
+    background-color: #87CEEB; /* Fundo azul claro */
+    color: #003366; /* Azul escuro para o texto */
+    width: 85%; /* Largura ajustada para o conteúdo */
+}
+
+/* Botão de ação no relato */
+.relato .acoes button {
+    background-color: #6495ED; /* Azul médio */
+}
+
+.relato .acoes button:hover {
+    background-color: #005bb5; /* Azul escuro ao passar o mouse */
+}
+
+/* Estilo do formulário */
+input[type="text"],
+textarea {
+    border: 2px solid #87CEEB; /* Borda azul clara */
+    background-color: #f0f8ff; /* Fundo azul muito claro */
+    color: #003366; /* Texto azul escuro */
+}
+
+button[type="submit"] {
+    background-color: #6495ED; /* Azul médio */
+}
+
+button[type="submit"]:hover {
+    background-color: #005bb5; /* Azul escuro ao passar o mouse */
+}
