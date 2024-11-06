@@ -54,4 +54,6 @@ router.post('/store/relatos', upload.single('imagem'), storeRelatos); // Use upl
 */
 router.get('/get/relatos', getRelatos);
 
+//criar rota do put
+
 module.exports = router;

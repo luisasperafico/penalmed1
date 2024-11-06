@@ -73,6 +73,7 @@
                 <textarea id="texto" name="texto"></textarea> <!-- Adicione o atributo name -->
 
                 <button id="enviar" type="button">Enviar meu relato</button>
+                
             </form>
             <div id="relatosDiv"></div>
         </main>
@@ -96,6 +97,7 @@
                     img.style.width = '100px'; // Ajuste o tamanho conforme necessário
                     img.style.margin = '5px'; // Espaçamento entre as imagens
                     previewContainer.appendChild(img);
+                    const editButton = document.createElement('button')
                 }
 
                 reader.readAsDataURL(file);

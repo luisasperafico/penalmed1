@@ -228,6 +228,7 @@ nav.menu-lateral:hover ~ .auth-buttons {
 .relato:hover {
     background-color:hsl(209, 93%, 82%);;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 }
 
 .relato .titulo, .relato .descricao, .relato .autor, .relato .data {
@@ -264,7 +265,13 @@ nav.menu-lateral:hover ~ .auth-buttons {
     background-color: #3e8e41;
 }
 
-
+.relato img {
+    max-width: 70%; /* Reduzido de 90% para 70% */
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 form {
     display: flex;
     flex-direction: column;

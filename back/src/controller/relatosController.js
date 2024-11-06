@@ -58,6 +58,8 @@ async function getRelatos(request, response) {
     });
 }
 
+//criar uma função do método PUT para editar com o comando UPLOAD os posts/relatos
+
 module.exports = {
     storeRelatos,
     getRelatos

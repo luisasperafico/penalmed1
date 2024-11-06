@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (content.success) {
                 content.data.forEach(relato => {
                     renderRelato(relato);
+
                 });
             } else {
                 alert("Erro ao carregar relatos: " + content.message);
@@ -93,6 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>${relato.texto}</p>
             <p>Por: ${relato.nome}</p>
             ${relato.imagem ? `<img src="/back/uploads/${relato.imagem}" alt="Imagem do relato">` : ''}
+            <button id="editar" type="button" onclick="editarPost()">Editar</button>
+            <button id="deletar" type="button" onclick="deletarPost()">Deletar</button>
         `;
         relatosContainer.prepend(relatoDiv); // Insere o novo relato no início da lista
     }
@@ -119,4 +122,10 @@ document.addEventListener('DOMContentLoaded', function() {
             reader.readAsDataURL(file);
         }
     });
+
 });
+
+function editarPost(){
+    //aqui irá fazer um fetch para o endpoint criado no controller e router chamando para o PUT
+    //fazer a alteração dos valores com alert
+}
