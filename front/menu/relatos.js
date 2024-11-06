@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
             reader.onload = function (e) {
                 const img = document.createElement('img');
                 img.src = e.target.result;
-                img.style.width = '100px';
-                img.style.margin = '5px';
+                img.style.width = '1px';
+                img.style.margin = '2px';
                 previewContainer.appendChild(img);
             };
 

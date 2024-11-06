@@ -16,7 +16,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:  #b5dbff;
+    background-color: #b5dbff;
     padding: 10px 20px;
     position: relative;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -25,7 +25,7 @@ header {
 
 button {
     background-color: transparent;
-    color:  #6495ED;
+    color: #6495ED;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -39,7 +39,7 @@ button:hover {
 }
 
 .btn {
-    background-color: #87CEEB; 
+    background-color: #87CEEB;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -57,11 +57,6 @@ button:hover {
     background-color: #6495ED;
 }
 
-
-
-
-
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -70,14 +65,14 @@ button:hover {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color:  #F2F7FF;
+    background-color: #F2F7FF;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
-    color: #6495ED; 
+    color: #6495ED;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -93,7 +88,7 @@ button:hover {
 }
 
 .dropdown:hover .dropbtn {
-    background-color:  #6495ED; 
+    background-color: #6495ED;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
@@ -101,9 +96,9 @@ button:hover {
 nav.menu-lateral {
     width: 90px;
     height: 100%;
-    background-color: #b5dbff; 
+    background-color: #b5dbff;
     padding: 40px 0 40px 1%;
-    box-shadow: -3px 0 10px  rgba(163, 215, 252, 0.5);
+    box-shadow: -3px 0 10px rgba(163, 215, 252, 0.5);
     position: fixed;
     top: 0;
     right: 0;
@@ -143,7 +138,7 @@ ul li.item-menu {
 }
 
 ul li.item-menu:hover {
-    background:  #6495ED;;
+    background: #6495ED;
 }
 
 ul li.item-menu a {
@@ -181,36 +176,25 @@ nav.menu-lateral:hover ~ .auth-buttons {
     right: 260px;
 }
 
-
-
-
-.main-container{
-    height: 100%;
-    width: calc(100% - 130px);
+.main-container {
+    height: 50%;
+    width: calc(50px - 50px);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 1rem;
-
-    p{
-        font-size: 1.5rem;
-        font-weight: 700;
-        text-align: center;
-    }
-    h1{
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
-
-    container{
-
-    }
-    container2{
-
-    }
 }
 
+p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}
 
+h1 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
 
 .relato {
     margin-bottom: 20px;
@@ -226,19 +210,19 @@ nav.menu-lateral:hover ~ .auth-buttons {
 }
 
 .relato:hover {
-    background-color:hsl(209, 93%, 82%);;
+    background-color: hsl(209, 93%, 82%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
 }
 
-.relato .titulo, .relato .descricao, .relato .autor, .relato .data {
+.relato .titulo,.relato .descricao,.relato .autor,
+.relato .data {
     font-size: 16px;
     color: #003366;
     margin-bottom: 10px;
     background-color: #87CEEB;
     padding: 10px;
     border-radius: 10px;
-    width: 80%; /* reduced width */
+    width: 50%;
     text-align: center;
 }
 
@@ -247,7 +231,7 @@ nav.menu-lateral:hover ~ .auth-buttons {
     display: flex;
     gap: 10px;
     justify-content: center;
-    width: 100%;
+    width: 50%;
 }
 
 .relato .acoes button {
@@ -266,12 +250,18 @@ nav.menu-lateral:hover ~ .auth-buttons {
 }
 
 .relato img {
-    max-width: 70%; /* Reduzido de 90% para 70% */
+    max-width: 50%; /* Reduzido para 50% */
     height: auto;
     border-radius: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.relato.main-container{
+    width: 50%;
+    height: 50;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -279,34 +269,34 @@ form {
     width: 31vw;
     margin: 0 auto;
     padding-top: 90px;
-  }
-  
-  label {
+}
+
+label {
     margin-bottom: 10px;
-    text-align: center; /* centraliza a escrita dos relatos */
-  }
-  
-  input[type="text"],
-  textarea {
-    border: 2px solid var(--azul_claro);
+    text-align: center;
+}
+
+input[type="text"],
+textarea {
+    border: 2px solid #87CEEB;
     border-radius: 30px;
     font-size: 15px;
     padding: 10px;
     margin-bottom: 30px;
     width: 100%;
     box-sizing: border-box;
-    text-align: center; /* centraliza a escrita nos campos de texto */
-  }
-  
-  textarea {
+    text-align: center;
+}
+
+textarea {
     height: 100px;
     resize: vertical;
-  }
-  
-  button[type="submit"] {
+}
+
+button[type="submit"] {
     background-color: #e9aa6c;
     padding: 8px 15px;
-    cursor: pointer;
+    cursor: pointer; 
     border-color: #e9aa6c;
     border-radius: 15px;
     margin-left: 10px;
@@ -316,47 +306,8 @@ form {
     font-weight: 550;
     color: white;
     font-family: "Raleway", sans-serif;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #e9aa6c80; /* cor de fundo mais clara ao passar o mouse */
-  }
-  .relato img {
-    max-width: 90%;
-    height: auto;
-    border-radius: 8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-/* Estilo do texto do relato */
-.relato .titulo, .relato .descricao, .relato .autor, .relato .data {
-    background-color: #87CEEB; /* Fundo azul claro */
-    color: #003366; /* Azul escuro para o texto */
-    width: 85%; /* Largura ajustada para o conteúdo */
-}
-
-/* Botão de ação no relato */
-.relato .acoes button {
-    background-color: #6495ED; /* Azul médio */
-}
-
-.relato .acoes button:hover {
-    background-color: #005bb5; /* Azul escuro ao passar o mouse */
-}
-
-/* Estilo do formulário */
-input[type="text"],
-textarea {
-    border: 2px solid #87CEEB; /* Borda azul clara */
-    background-color: #f0f8ff; /* Fundo azul muito claro */
-    color: #003366; /* Texto azul escuro */
-}
-
-button[type="submit"] {
-    background-color: #6495ED; /* Azul médio */
 }
 
 button[type="submit"]:hover {
-    background-color: #005bb5; /* Azul escuro ao passar o mouse */
+    background-color: #e9aa6c80;
 }
