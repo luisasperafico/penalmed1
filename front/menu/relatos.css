@@ -178,9 +178,9 @@ nav.menu-lateral:hover ~ .auth-buttons {
 
 .main-container {
     height: 50%;
-    width: calc(50px - 50px);
+    width: 100wv;
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     justify-content: space-around;
     padding: 1rem;
 }
@@ -250,7 +250,7 @@ h1 {
 }
 
 .relato img {
-    max-width: 50%; /* Reduzido para 50% */
+    max-width: 70%;
     height: auto;
     border-radius: 8px;
     margin-top: 10px;
