@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Adiciona um ouvinte de evento para o formulário de login
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
+    document.getElementById('loginForm').addEventListener('submit', async function (event) {
         event.preventDefault(); // Previne o comportamento padrão de envio do formulário
         // Obtém os valores dos campos de email e senha do formulário
         const email = document.getElementById('loginEmail').value;
@@ -57,16 +57,22 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Login:', { email, password });
 
         // Envia uma requisição POST para o endpoint '/login' com os dados do formulário
-        fetch('/login', {
+
+        const response = await fetch('http://localhost:3003/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password }) // Converte os dados para JSON
-        })
-        .then(response => response.text()) // Converte a resposta para texto
-        .then(data => console.log(data)) // Exibe os dados da resposta no console
-        .catch(error => console.error('Error:', error)); // Captura e exibe erros no console
+            body: JSON.stringify({ email, password })
+        });
+
+
+        let content = await response.json();
+        console.log(content)
+        if(content.success){
+
+            window.location.href = "../homepage/home.html";
+        }
     });
 
     // Adiciona um "ouvinte" de evento para o formulário de registro
@@ -82,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch('/register', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json', 
             },
             body: JSON.stringify({ name, email, password }) // Converte os dados para JSON
         })

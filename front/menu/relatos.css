@@ -197,17 +197,17 @@ h1 {
 }
 
 .relato {
-    margin-bottom: 20px;
-    padding: 20px;
     background-color: #e0f3ff;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 100px;
+    margin: 20px;
+    width: 250px; /* Define a largura semelhante ao .news-item */
+    text-align: center;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .relato:hover {
     background-color: hsl(209, 93%, 82%);
@@ -257,9 +257,19 @@ h1 {
     margin-bottom: 10px;
 }
 
-.relato.main-container{
-    width: 50%;
-    height: 50;
+.relato.main-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.relatos-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha, se necessário */
+    gap: 20px; /* Espaço entre os contêineres */
+    justify-content: center; /* Centraliza os elementos no contêiner */
+    padding: 20px;
 }
 
 form {
