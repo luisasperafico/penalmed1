@@ -6,6 +6,7 @@ const upload = multer({ dest: 'uploads/' });
 const restauranteRouter = require('../src/routes/RestauranteRouter');
 const cadastroRouter = require('../src/routes/cadastroRouter')
 const relatosRouter = require('../src/routes/relatosRouter')
+const loginRouter = require('../src/routes/loginRouter')
 
 const cors = require('cors');
 const app = express();
@@ -18,5 +19,6 @@ app.use(cors());
 app.use('/api', restauranteRouter);
 app.use('/api', cadastroRouter);
 app.use('/api', relatosRouter);
+app.use('/api', loginRouter);
 
 module.exports = app;
